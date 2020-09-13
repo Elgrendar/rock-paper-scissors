@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piedra, Papel o Tijera</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="title">
+        <h1>Piedra, Papel o Tijeras</h1>
+    </div>
+    <div class="turns" id="turns">
+        <label for="turns__number">Introduce el número de jugadas</label>
+        <input type="number" id="turns__number" class="turns__number" min=1 max=99 value=1 step=2>
+    </div>
+
+    <div class="table__score hide" id="table__score">
+        <p class="score">
+            <span class="score--player" id="score--player"></span>:<span class="score--computer" id="score--computer"></span>
+        </p>
+    </div>
+    <div class="result hide" id="result">
+        <p class="result--text" id="result--text"></p>
+    </div>
+    <div class="starter">
+        <button id="reset" class="reset hide">Jugar de nuevo</button>
+    </div>
+    <div class="play hide" id="play">
+        <div class="play__current" id="play__current">
+            <div class="options" id="optionplayer">
+                <button class="icon player" data-option=0>
+                    <img class="icon--image" src="assets/rock.svg" alt="Rock" title="Rock"/>
+                </button>
+                <button class="icon player" data-option=1>
+                    <img class="icon--image" src="assets/paper.svg" alt="Paper" title="Paper">
+                </button>
+                <button class="icon player" data-option=2>
+                    <img class="icon--image" src="assets/scissors.svg" alt="Scissors" title="Scissors">
+                </button>
+            </div>
+            <div class="selected">
+                <img id="playerselection" class="selected--image hide">
+            </div>
+            <p class="vs">VS</p>
+            <div id="computerselection" class="selected ">
+                <img class="selected--image hide" src="assets/rock.svg" alt="Rock" title="Rock" />
+                <img class="selected--image hide" src="assets/paper.svg" alt="Paper" title="Paper">
+                <img class="selected--image hide" src="assets/scissors.svg" alt="Scissors" title="Scissors">
+            </div>
+        </div>
+    </div>
+    <div class="starter">
+        <button class="start" id="start">Jugar</button>
+    </div>
+    <script src="app.js "></script>
+</body>
+
+</html>

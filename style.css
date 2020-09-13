@@ -1,0 +1,150 @@
+:root {
+    --color-icon: #f00;
+    --color-selected: #00f;
+    --color-text: #fff;
+}
+
+body {
+    background-color: lightseagreen;
+    margin: 0;
+    position: relative;
+}
+
+h1 {
+    margin: 0;
+}
+
+.title {
+    top: 0;
+    background-color: whitesmoke;
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+.turns {
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.turns__number {
+    width: 2em;
+    background-color: lightblue;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.table__score {
+    background-color: lightblue;
+    width: 150px;
+    height: 30px;
+    margin: 1em auto;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.score {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.score--player {
+    margin-right: 1em;
+    color: var(--color-icon);
+}
+
+.score--computer {
+    margin-left: 1em;
+    color: var(--color-icon);
+}
+
+.result {
+    width: 30%;
+    margin: auto;
+    text-align: center;
+    border: 0.6em solid var(--color-text);
+    border-radius: 50%;
+}
+
+.result--text {
+    font-size: 36px;
+    color: var(--color-text);
+}
+
+.result--text::first-letter {
+    text-transform: uppercase;
+}
+
+.hide {
+    display: none;
+}
+
+.play {
+    width: 40%;
+    padding: 2em;
+    border: 0.3em solid var(--color-text);
+    margin: auto;
+    align-items: center;
+}
+
+.play__current {
+    text-align: center;
+    margin: auto;
+}
+
+.options {
+    margin: auto;
+}
+
+.icon {
+    border-radius: 50%;
+    border: 3px solid;
+    border-color: var(--color-icon);
+    overflow: hidden;
+    margin: 1em;
+}
+
+.icon:focus {
+    border-radius: 50%;
+    outline: none;
+    border-color: var(--color-selected);
+}
+
+.icon--image {
+    height: 3em;
+    width: 3em;
+}
+
+.selected {
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+    border: 2px solidvar(--color-text);
+    margin: auto;
+}
+
+.selected--image {
+    width: 4.5em;
+    height: 4.7em;
+}
+
+.vs {
+    color: var(--color-text);
+    font-size: 36px;
+    margin: 0;
+}
+
+.starter {
+    text-align: center;
+}
+
+.start,
+.reset {
+    margin: 3em;
+    font-size: 30px;
+    border: none;
+    border-radius: 5px;
+    padding: 1em;
+    background-color: lightblue;
+}
