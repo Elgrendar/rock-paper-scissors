@@ -60,15 +60,15 @@ h1 {
 }
 
 .result {
-    width: 30%;
+    width: 20%;
     margin: auto;
     text-align: center;
-    border: 0.6em solid var(--color-text);
+    border: 0.3em solid var(--color-text);
     border-radius: 50%;
 }
 
 .result--text {
-    font-size: 36px;
+    font-size: 24px;
     color: var(--color-text);
 }
 
@@ -82,7 +82,7 @@ h1 {
 
 .play {
     width: 40%;
-    padding: 2em;
+    padding: 1em;
     border: 0.3em solid var(--color-text);
     margin: auto;
     align-items: center;
@@ -141,10 +141,10 @@ h1 {
 
 .start,
 .reset {
-    margin: 3em;
+    margin: 1em;
     font-size: 30px;
     border: none;
     border-radius: 5px;
-    padding: 1em;
+    padding: 0.5em;
     background-color: lightblue;
 }

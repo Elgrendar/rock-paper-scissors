@@ -26,10 +26,46 @@ let player = 0;
 let computer = 0;
 let jSelect;
 let cSelect;
+let cont = 0;
+let id;
+let p;
 
 /* aplication logic */
+
+const change = () => {
+    if ((cont % 2) === 1) {
+        computerSelection.src = "assets/paper.svg";
+    } else if ((cont % 3) === 1) {
+        computerSelection.src = "assets/rock.svg";
+    } else {
+        computerSelection.src = "assets/scissors.svg";
+    }
+
+    cont++;
+    if (cont === 10) {
+        cont = 0;
+        clearInterval(id);
+        p = Math.floor(Math.random() * (3 - 0)) + 0;
+        //Draw the image of the computer run
+        cSelect = p;
+        switch (p) {
+            case 0:
+                computerSelection.src = "assets/rock.svg";
+                break;
+            case 1:
+                computerSelection.src = "assets/paper.svg";
+                break;
+            case 2:
+                computerSelection.src = "assets/scissors.svg";
+                break;
+        }
+        calculateWinner();
+    }
+}
+
 const reset = () => {
     //Reset all variables and show only start game
+    cont = 0;
     turns = 1;
     rest = 0;
     player = 0;
@@ -41,10 +77,11 @@ const reset = () => {
     playButton.classList.remove('hide');
     buttonReset.classList.add('hide');
     result.classList.add('hide');
+    play.classList.add('hide');
     //hide all image of players selection
-    computerSelection.children[0].classList.add('hide');
-    computerSelection.children[1].classList.add('hide');
-    computerSelection.children[2].classList.add('hide');
+    //computerSelection.children[0].classList.add('hide');
+    //computerSelection.children[1].classList.add('hide');
+    //computerSelection.children[2].classList.add('hide');
     playerSelection.classList.add('hide');
 }
 
@@ -69,9 +106,8 @@ const updateScore = () => {
     scorePlayer.setAttribute('data-value', player);
     scoreComputer.innerHTML = computer;
     scoreComputer.setAttribute('data-value', computer);
-    if (rest === turns) {
+    if (rest === turns || computer > (turns / 2) || player > (turns / 2)) {
         result.classList.remove('hide');
-        play.classList.add('hide');
         buttonReset.classList.remove('hide');
         if (player > computer) {
             resultText.innerHTML = "Has ganado!!!";
@@ -85,6 +121,7 @@ const updateScore = () => {
 }
 
 const calculateWinner = () => {
+    console.log("Jugador: " + jSelect + " Computador: " + cSelect + " p: " + p);
     if (jSelect === 0) {
         switch (cSelect) {
             case 0:
@@ -127,16 +164,10 @@ const calculateWinner = () => {
 }
 
 const computerRoll = () => {
-    //Hide all the images from the computer selection
-    computerSelection.children[0].classList.add('hide');
-    computerSelection.children[1].classList.add('hide');
-    computerSelection.children[2].classList.add('hide');
     //Computer roll
-    p = Math.floor(Math.random() * (3 - 0)) + 0;
     //Show the image of the computer run
-    computerSelection.children[p].classList.remove('hide');
-    cSelect = p;
-    calculateWinner();
+    computerSelection.classList.remove('hide');
+    id = setInterval(change, 100);
 };
 
 
@@ -154,6 +185,7 @@ playButton.addEventListener('click', () => {
     score.classList.remove('hide');
     playButton.classList.add('hide');
     play.classList.remove('hide');
+    computerSelection.classList.add('hide');
 })
 
 /*Capture reset Button */
@@ -185,5 +217,8 @@ playerOption.addEventListener('click', (e) => {
             break;
     }
     playerSelection.classList.remove('hide');
+    computerSelection.classList.remove('hide');
+    cSelect = -1;
+    p = -1;
     computerRoll();
 })
